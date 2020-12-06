@@ -1,0 +1,12 @@
+Contenu du fichier file.txt
+Ajout de contenu a mon fichier
+Ajout de contenu a mon fichier
+Ajout de contenu a mon fichier
+Ajout de contenu a mon fichier
+Ajout de contenu a mon fichier
+Ajout de contenu a mon fichier
+Ajout de contenu a mon fichier
+mes nouvelles données par appendFile
+Ajout de contenu a mon fichier
+mes nouvelles données par appendFile
+Ajout de contenu a mon fichiermes nouvelles données par appendFileAjout de contenu a mon fichiermes nouvelles données par appendFileAjout de contenu a mon fichiermes nouvelles données par appendFile

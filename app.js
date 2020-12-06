@@ -1,44 +1,39 @@
-const util = require('util');
-const colors = require('colors');
+const fs= require('fs');
+const http= require('http');
+
+// Server web avec mini routing
+
+const server = http.createServer();
+
+server.on('request',(req,res)=>{
+
+        const url =req.url;
+        let fileContent;
+
+        if (url === '/index' || url === '/'){
+            res.writeHead(200,{
+                'content-type':'text/html'
+            })
+           fileContent = fs.readFileSync('./html/index.html','utf-8')
+        }
+        else if (url === '/info'){
+            res.writeHead(200,{
+                'content-type':'text/html'
+            })
+            fileContent = fs.readFileSync('./html/info.html','utf-8')
+        }
+        else {
+            res.writeHead(404,{
+                'content-type':'text/html'
+            })
+            fileContent = fs.readFileSync('./html/404.html','utf-8')
+        }
 
 
+    res.end(fileContent);
 
-const noel = new Date('December 25, 2020 15:00:00')
-
-console.log(util.types.isDate(123).toString().red);
-console.log(util.types.isDate(noel).toString().green);
-
-console.log('Writing by Bruno HUDBERT'.rainbow);
+    }
+)
 
 
-// class MyEmmitter {
-//     constructor(){
-//         this.events={
-//
-//
-//         }
-//     }
-//
-//     on(event,listener){
-//         this.events[event]=this.events[event] || []
-//         this.events[event].push(listener);
-//     }
-//     emit(event){
-//         if(this.events[event]){
-//             this.events[event].forEach( (listener) =>  listener() )
-//         }
-//     }
-// }
-const MyEmmitter = require('events');
-const emitter = new MyEmmitter();
-
-emitter.on('FILE_READ',()=>{
-    console.log('file wad read');
-})
-
-
-emitter.on('FILE_READ',()=>{
-    console.log('should save file');
-})
-
-emitter.emit('FILE_READ')
+server.listen(9090)
